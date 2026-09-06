@@ -1,0 +1,20 @@
+# Claude Code 로컬 설정
+.claude/settings.local.json
+
+# 파이썬 부산물. 각 stage-N-*/ 는 독립 uv 프로젝트라 같은 규칙이 그 안에도 있다
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# 변환 출력. 실제 녹화 클립엔 사용자 이미지·포인트클라우드가 있다 — 서울 리전 S3 로, 커밋하지 않는다
+out/
+*.parquet
+*.npy
+
+# uv.lock 과 inventory/*.json|txt 는 커밋한다
+
+*.log
+.DS_Store
+Thumbs.db

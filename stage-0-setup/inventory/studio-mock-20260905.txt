@@ -1,0 +1,33 @@
+clip                                      kind               bones   rows frames     sec sensorHz motionHz  valid clouds     points
+-----------------------------------------------------------------------------------------------------------------------------------
+DH/ImgFrame.packets.bin                   unrecognized           0      0      0    0.00        -        -      0      0          0
+DH/ObjsFrame.packets.bin                  objs_frame/motion9    55    544    182    9.05    20.11    60.10    544    182     315904
+DH/PCFrame.packets.bin                    unrecognized           0      0      0    0.00        -        -      0      0          0
+arms_forward_palms_in_5frames.packets.bin objs_frame/motion6    55      5      1    0.00        -        -      5      0          0
+image_floor.bin                           unrecognized           0      0      0    0.00        -        -      0      0          0
+image_office.bin                          unrecognized           0      0      0    0.00        -        -      0      0          0
+mocap_by.bin                              mocap_topic           22    402    135    6.71    20.12    59.92    402      0          0
+mocap_chairman.bin                        mocap_topic           22    470    158    8.01    19.72    58.67    470      0          0
+mocap_dh.bin                              mocap_topic           22    369    124    6.16    20.14    59.95    369      0          0
+mocap_dk.bin                              mocap_topic           22    456    152    7.56    20.11    60.33    456      0          0
+mocap_ds.bin                              mocap_topic           22    361    121    6.01    20.14    60.08    361      0          0
+mocap_entering.bin                        mocap_topic           22     53     18    0.85    21.18    62.35      0      0          0
+mocap_idle.bin                            mocap_topic           22    437    147    7.31    20.11    59.77    437      0          0
+mocap_idle_20fps.bin                      mocap_topic           22    146    146    7.26    20.11    20.11    146      0          0
+objs_office.bin                           unrecognized           0      0      0    0.00        -        -      0      0          0
+objsframe_subscriber.bin                  objs_frame/motion6    55   3223   1075   53.70    20.02    60.02   3223      0          0
+out-of-zone/ImgFrame.packets.bin          unrecognized           0      0      0    0.00        -        -      0      0          0
+out-of-zone/ObjsFrame.packets.bin         unrecognized           0      0      0    0.00        -        -      0      0          0
+out-of-zone/PCFrame.packets.bin           unrecognized           0      0      0    0.00        -        -      0      0          0
+pointcloud_floor.bin                      unrecognized           0      0      0    0.00        -        -      0      0          0
+pointcloud_office.bin                     unrecognized           0      0      0    0.00        -        -      0      0          0
+synced_hand_subscriber.bin                unrecognized           0      0      0    0.00        -        -      0      0          0
+synced_mocap_subscriber.bin               mocap_topic           22    196     66    3.40    19.41    57.65    196      0          0
+synced_objs_subscriber.bin                unrecognized           0      0      0    0.00        -        -      0      0          0
+t_pose_5frames.packets.bin                objs_frame/motion6    55      5      1    0.00        -        -      5      0          0
+v3/ImgFrame.packets.bin                   unrecognized           0      0      0    0.00        -        -      0      0          0
+v3/ObjsFrame.packets.bin                  objs_frame/motion6    55    362    121    6.00    20.16    60.32    362    121     143757
+v3/PCFrame.packets.bin                    unrecognized           0      0      0    0.00        -        -      0      0          0
+v3.bin                                    objs_frame/motion6    55   3629   1210   60.45    20.02    60.03   3629      0          0
+-----------------------------------------------------------------------------------------------------------------------------------
+29 clips, 3.0 min, 10605 rows with valid motion

@@ -1,0 +1,27 @@
+[project]
+name = "movin-clip"
+version = "0.1.0"
+description = "MOVIN Studio 녹화 클립을 ML 학습용 Parquet + npy로 변환한다"
+requires-python = ">=3.12"
+dependencies = [
+    "protobuf>=5.29",
+    "pyarrow>=18.0",
+    "numpy>=2.1",
+    "polars>=1.17",
+]
+
+[project.scripts]
+movin-clip-convert = "movin_clip.convert:main"
+movin-clip-inventory = "movin_clip.inventory:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/movin_clip"]

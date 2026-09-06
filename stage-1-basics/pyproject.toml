@@ -1,0 +1,15 @@
+[project]
+name = "stage-1-basics"
+version = "0.1.0"
+description = "Stage 1 — 학습 루프를 손으로. 코드는 전부 사용자가 쓴다."
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.5",          # 기울기 대조용 참조 구현. 여기 기대지 말 것
+    "numpy>=2.1",
+    "matplotlib>=3.9",
+    "scikit-learn>=1.5",   # make_moons 같은 장난감 데이터셋
+    "jupyter>=1.1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3"]
