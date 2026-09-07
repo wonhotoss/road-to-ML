@@ -48,14 +48,25 @@ truediv?
 
 __pow__ 의 backward는 직접 구현
 
-만들어볼 것. value graph 생성기. back propargation. 임의의 값과 expression으로 산술적으로(delta)스스로를 검증하는 테스트수트. 
-
-만들어볼 것. 왜 pow는 rhand에 상수만 받는가?
-
-만들어볼 것. 그래프 좀 짧게
-
 만들어볼 것. 
+value graph 생성기. 
++ - * / pow atan exp
+back propargation. 임의의 값과 expression으로 산술적으로(delta)스스로를 검증하는 테스트수트. 
+
+왜 pow는 rhand에 상수만 받는가?
+
+그래프 좀 짧게
+
 1. 임의의 value graph 생성
 2. 임의의 neural net 생성. 1과 같은 수의 입력. 임의의 layers * neurons
 3. 1의 결과와 비교하느 loss function
 4. gradient 따라가며 최적화(loss 최소화)
+
+- node 껍데기. 간단한 operation만
+- draw
+- backward. topological sort + recursion
+- 임의 expression 생성기
+- 산술적 테스트
+- expression -> torch 변환식
+- torch 비교 테스트
+
