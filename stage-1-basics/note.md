@@ -65,8 +65,10 @@ back propargation. 임의의 값과 expression으로 산술적으로(delta)스�
 - node 껍데기. 간단한 operation만
 - draw
 - backward. topological sort + recursion
-- 임의 expression 생성기
 - 산술적 테스트
+- 임의 expression 생성기 + 산술적 테스트
+- atan
+- exp
 - expression -> torch 변환식
-- torch 비교 테스트
+- 임의 expression 생성기 + torch 테스트
 
