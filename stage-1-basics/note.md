@@ -66,9 +66,13 @@ back propargation. 임의의 값과 expression으로 산술적으로(delta)스�
 - draw
 - backward. topological sort + recursion
 - 산술적 테스트
+- 임의 expression 생성기
 - 임의 expression 생성기 + 산술적 테스트
-- atan
+- pow
 - exp
+
+- atan
+- 임의 expression 생성기(atan + exp 포함) + 산술적 테스트
 - expression -> torch 변환식
 - 임의 expression 생성기 + torch 테스트
 
