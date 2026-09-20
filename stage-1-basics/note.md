@@ -73,7 +73,6 @@ back propargation. 임의의 값과 expression으로 산술적으로(delta)스�
 - atan
 - 임의 expression 생성기(atan + exp 포함) + 산술적 테스트
 - torch test
-
 - 임의 expression 생성기 tree => graph
 - expression: embed torch node
 - 임의 expression 생성기 + torch 테스트
