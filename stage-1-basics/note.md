@@ -80,3 +80,4 @@ back propargation. 임의의 값과 expression으로 산술적으로(delta)스�
 - neural network(neuron - layer - mlp)
 - 고정 입력과 임의의 expression. neural network으로 추적
 
+막혔던 지점 목록
