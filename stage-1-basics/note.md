@@ -77,6 +77,6 @@ back propargation. 임의의 값과 expression으로 산술적으로(delta)스�
 - expression: embed torch node
 - 임의 expression 생성기 + torch 테스트
 
-- neural network
+- neural network(neuron - layer - mlp)
 - 고정 입력과 임의의 expression. neural network으로 추적
 
