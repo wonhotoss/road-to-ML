@@ -80,4 +80,57 @@ back propargation. 임의의 값과 expression으로 산술적으로(delta)스�
 - neural network(neuron - layer - mlp)
 - 고정 입력과 임의의 expression. neural network으로 추적
 
+### 리뷰 이후
+
+- topological sort
+- 전위 DFS 와 topological sort 가 만드는 차이를 설명
+
+"a + a = result 에서 a 의 grad가 1로 나온다. 두 항이 같은 객체라서 보기에만 틀려 보이는 거 아닌가
+
+더 복잡한 식으로 가면, 하나의 값이 복수의 입력으로 쓰일 때 grad가 어느 하나의 채널에서 온 값만 채택해서 생기는 문제."
+
+위의 노트에서 발췌
+
+위상 정렬이 틀어지면서, backward propargation의 어느 한 경로가 차단된 결과를 낳는다. 끊어진 시냅스? 하지만 foward 경로는 살아있다. foward 경로까지 끊어지면 다른 경로가 유실된 backward 값을 물려받을 듯.
+
+
+a = b + c
+b = c * 2
+c = ...
+=> 위상 정렬이 틀어지면, c가 B에서 오는 back-propargation을 받지 못하게 된다.
+=> 그냥 recursive하게 
+    a => b => c => ...
+    a => c => ...
+이러면 c(와 자식들)가 a로부터 두 번 전파받는 식이 된다. grad(a) + (grad(a) * 2)... 그런데 이러면 맞지 않나? 확인..
+
+a = Expression(1)
+r = a + a
+test_grad(r)
+-> 여기선 재귀도 괜찮다
+
+a = Expression(1)
+b = a * Expression(1)
+r = b + b
+test_grad(r)
+
+original [4.0, 4.0]
+estimated [2.0000000000131024, 2.0000000000131024]
+torch [2.0, 2.0]
+
+-> 여기선 문제가 생긴다.
+r = (a * 1) + (a * 1) = 2 * a 이니 a의 기울기는 2가 맞다.
+backward 경로에선 1만 유통되니, 기울기가 4라면 a 가 4번 방문되었다는 건데 어떻게?
+
+backward() 자체가 형제들에게 한 번에 기울기를 나눠주는 식이라 DFS가 제대로 기능하지 않았다. 자식 형제들한테 한 번에 기울기를 나눠주는데, 두 자식이 사실 같은 놈이라 한 놈한테 두 번 나눠주었다. 여기까진 맞는데, 재귀적으로 호출되면서 (큰아들 -> 공통손자 + 작은아들 -> 공통손자)여야 하는데((큰아들 + 작은아들) -> 공통손자) * 2 가 되어 버렸다. 이건 애초에 구현이 backward()가 breadth first 호출을 염두에 두고 있기 때문에(self.grad += ...). recursive_backward 를 따로 만들자.
+
+일이 커질 것 같다. recursive하게 구현하려면, node 들이 매 backward call마다 위에서 내려온 grad만 밑으로 내려보내야 하고, 최종 결과만 합산해서 반환해야 한다.기존의 self.grad += ... 하는 식으론 안된다. 한 번 구현해보자. 
+
+dfs_backward 잘 기능한다. 객체 안에 쌓는 것보다 이게 더 낫다. 이걸 MLP로.
+
+math domainerror, dividebyzero...이건 일단 무시
+    
+
+
+
+
 막혔던 지점 목록
