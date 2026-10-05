@@ -170,9 +170,9 @@ torch 경로 완료. 여기까지 결과 잘 나온다.
 
 학습까진 되는데, 평가 결과는 좋지 못하다.
 
-[ ]draw_dot의 if n.op: — 잎의 op가 'noop'이라 항상 참이다. 잎마다 noop 연산 노드가 그려진다.
-[ ]create_random_graph는 여전히 kind == 8이 빈 가지다. create_random_expression의 kind == 8(같은 노드를 두 번 넣기)은 재사용을 만들어서 좋다 — 그래서 1a 판정용으로는 이쪽이 낫다.
-[ ]Expression.__init__이 노드마다 torch 텐서를 만든다. 비용은 작다(2만 개에 0.1초). 병목은 아니다. 다만 p.tensor가 갱신을 따라가지 않는 문제는 그대로다 — 학습 후 torch 대조를 할 거면 tsort_torch가 잎을 e.value로 새로 만들게 하는 편이 낫다.
+[x]draw_dot의 if n.op: — 잎의 op가 'noop'이라 항상 참이다. 잎마다 noop 연산 노드가 그려진다.
+[x]create_random_graph는 여전히 kind == 8이 빈 가지다. create_random_expression의 kind == 8(같은 노드를 두 번 넣기)은 재사용을 만들어서 좋다 — 그래서 1a 판정용으로는 이쪽이 낫다.
+[x]Expression.__init__이 노드마다 torch 텐서를 만든다. 비용은 작다(2만 개에 0.1초). 병목은 아니다. 다만 p.tensor가 갱신을 따라가지 않는 문제는 그대로다 — 학습 후 torch 대조를 할 거면 tsort_torch가 잎을 e.value로 새로 만들게 하는 편이 낫다.
 
 [ ] 200회 루프 셀을 tsort 대 torch, 상대오차, assert로
 [ ] 마지막 셀 정답 매핑 수정, train/test loss 곡선 + 상수 예측 기준선
